@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>経過観察アンケート</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- チャット形式アンケート  -->
+    <div id="screen-chat" class="screen active">
+        <!-- ヘッダー -->
+        <div class="chat-header">
+            <span id="chat-progress">0 / 14</span>
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- チャットエリア -->
+        <div id="chat-container" class="chat-container">
+            <!-- 動的に質問が追加される -->
+        </div>
+
+        <!-- 確定ボタン（全問回答後に表示） -->
+        <div id="confirm-area" class="confirm-area" hidden>
+            <button id="btn-confirm" class="btn-confirm">確定する</button>
+        </div>
+    </div>
+
+    <!-- 結果・QRコード画面 -->
+    <div id="screen-result" class="screen">
+        <div class="result-container">
+            <h1>回答が完了しました</h1>
+            <p class="description">ご回答いただきましてありがとうございました。<br>この画面をスタッフにお見せください。</p>
+            <div id="qrcode-container"></div>
+            <p id="result-text" class="result-text"></p>
+            <button id="btn-restart" class="btn-primary btn-large">最初に戻る</button>
+        </div>
+    </div>
+
+    <!-- 確認モーダル -->
+    <div id="confirm-modal" class="modal-overlay" hidden>
+        <div class="modal-content">
+            <p class="modal-message">回答内容を削除して最初の画面に戻ります。<br>よろしいですか？</p>
+            <div class="modal-buttons">
+                <button id="modal-cancel" class="btn-secondary">キャンセル</button>
+                <button id="modal-ok" class="btn-primary">はい</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/lib/qrcode.min.js"></script>
+    <script src="js/csv-parser.js"></script>
+    <script src="js/qr-generator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
